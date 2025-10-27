@@ -1,0 +1,62 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Pad">
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform Angle="10.305" CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="#FF313131"/>
+                <GradientStop Color="#FF212121" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="555*"/>
+            <ColumnDefinition Width="77*"/>
+            <ColumnDefinition Width="53*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Typ vstupu" Grid.Row="1" Grid.Column="1" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Margin="0,32,0,0" Grid.RowSpan="2"/>
+
+
+        <Button x:Name="TextToMorseButton" Content="Text" Grid.Column="1" FontSize="16" Margin="5,43,5,21" Click="TextToMorseButton_Click" FontWeight="Bold" Foreground="White" BorderBrush="Black" Background="#FF0058B9" Grid.RowSpan="2"/>
+        <Button x:Name="ClearButton" Content="Vymaž" Grid.Row="2" Grid.Column="1" FontSize="16" Margin="5,5,5,5" Click="ClearButton_Click" Background="#FF0058B9" FontWeight="Bold" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="TTSButton" Content="Přečti" Grid.Row="3" Grid.Column="1" FontSize="16" Margin="5,5,5,5" Click="TTSButton_Click" Background="#FF0058B9" FontWeight="Bold" Foreground="White" BorderBrush="Black"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="3" FontSize="20" FontWeight="Bold" TextAlignment="Left" VerticalAlignment="Bottom" Foreground="White">
+            Zadej text do pole níže:
+        </TextBlock>
+
+        <TextBox x:Name="InputArea" Grid.Row="1" Grid.RowSpan="4" Grid.Column="3" FontSize="16" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" Background="#33000000" BorderBrush="#00ABADB3" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,31"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="3" FontSize="20" FontWeight="Bold" TextAlignment="Left" VerticalAlignment="Bottom" Foreground="White">
+            Zde se zobrazí převedený text:
+        </TextBlock>
+
+        <TextBlock x:Name="OutputArea" Grid.Row="5" Grid.Column="3" FontSize="16" TextWrapping="Wrap" Background="#33000000" OpacityMask="Black" Foreground="White"/>
+
+    </Grid>
+</Window>
