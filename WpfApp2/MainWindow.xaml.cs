@@ -14,11 +14,8 @@ using System.Speech.Synthesis;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 
-namespace WpfApp2
+namespace MorseCodeConverter
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
