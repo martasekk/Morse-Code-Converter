@@ -19,5 +19,3 @@
       <li>Build and run the WPF app (F5).</li> 
       <li>Enter text or Morse code and press the convert button.</li>
     </ol> 
-    <h2>Example</h2>
-    <p><strong>Text:</strong> HELLO<br> <strong>Morse:</strong> .... . .-.. .-.. ---</p>
