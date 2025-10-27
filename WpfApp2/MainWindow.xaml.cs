@@ -129,11 +129,11 @@ namespace MorseCodeConverter
                     var token = _cts.Token;
                     try
                     {
-                        _ = PlayMorseAsync(text, token); // volání nestatické metody
+                        _ = PlayMorseAsync(text, token);
                     }
                     catch (System.OperationCanceledException)
                     {
-                        // Zpracování zrušení, pokud je potřeba
+                       
                     }
                 }
             }
@@ -157,7 +157,7 @@ namespace MorseCodeConverter
                         await Task.Delay(beepTime * 2, token);
                         break;
                 }
-                await Task.Delay(beepTime / 2, token); // space between signals
+                await Task.Delay(beepTime / 2, token);
             }
         }
 
