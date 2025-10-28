@@ -35,22 +35,21 @@
             <ColumnDefinition Width="95*"/>
             <ColumnDefinition Width="11*"/>
             <ColumnDefinition Width="555*"/>
-            <ColumnDefinition Width="77*"/>
             <ColumnDefinition Width="53*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Typ vstupu" Grid.Row="1" Grid.Column="1" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Margin="0,32,0,0" Grid.RowSpan="2"/>
+        <TextBlock Text="Typ vstupu" Grid.Row="0" Grid.Column="1" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White"/>
 
 
-        <Button x:Name="TextToMorseButton" Content="Text" Grid.Column="1" FontSize="16" Margin="5,43,5,21" Click="TextToMorseButton_Click" FontWeight="Bold" Foreground="White" BorderBrush="Black" Background="#FF0058B9" Grid.RowSpan="2"/>
-        <Button x:Name="ClearButton" Content="Vymaž" Grid.Row="2" Grid.Column="1" FontSize="16" Margin="5,5,5,5" Click="ClearButton_Click" Background="#FF0058B9" FontWeight="Bold" Foreground="White" BorderBrush="Black"/>
-        <Button x:Name="TTSButton" Content="Přečti" Grid.Row="3" Grid.Column="1" FontSize="16" Margin="5,5,5,5" Click="TTSButton_Click" Background="#FF0058B9" FontWeight="Bold" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="TextToMorseButton" Content="Text" Grid.Row="1" Grid.Column="1" FontSize="16" Margin="8" Click="TextToMorseButton_Click" FontWeight="Bold" Foreground="White" BorderBrush="Black" Background="#33000000"/>
+        <Button x:Name="ClearButton" Content="Vymaž" Grid.Row="2" Grid.Column="1" FontSize="16" Margin="5" Click="ClearButton_Click" Background="#FF0058B9" FontWeight="Bold" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="TTSButton" Content="Přečti" Grid.Row="3" Grid.Column="1" FontSize="16" Margin="5" Click="TTSButton_Click" Background="#FF0058B9" FontWeight="Bold" Foreground="White" BorderBrush="Black"/>
 
         <TextBlock Grid.Row="0" Grid.Column="3" FontSize="20" FontWeight="Bold" TextAlignment="Left" VerticalAlignment="Bottom" Foreground="White">
             Zadej text do pole níže:
         </TextBlock>
 
-        <TextBox x:Name="InputArea" Grid.Row="1" Grid.RowSpan="4" Grid.Column="3" FontSize="16" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" Background="#33000000" BorderBrush="#00ABADB3" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,31"/>
+        <TextBox x:Name="InputArea" Grid.Row="1" Grid.RowSpan="4" Grid.Column="3" FontSize="16" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" Background="#33000000" BorderBrush="#00ABADB3" Foreground="White"/>
 
         <TextBlock Grid.Row="4" Grid.Column="3" FontSize="20" FontWeight="Bold" TextAlignment="Left" VerticalAlignment="Bottom" Foreground="White">
             Zde se zobrazí převedený text:
