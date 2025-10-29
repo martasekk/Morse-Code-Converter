@@ -13,8 +13,9 @@ using System.Windows.Shapes;
 using System.Speech.Synthesis;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using System.Windows.Markup;
 
-namespace MorseCodeConverter
+namespace MorseCodeConverter.MainWindow
 {
     public partial class MainWindow : Window
     {
@@ -22,7 +23,7 @@ namespace MorseCodeConverter
         {
             InitializeComponent();
 
-            _synth.SelectVoiceByHints(System.Speech.Synthesis.VoiceGender.Female, System.Speech.Synthesis.VoiceAge.Adult);
+            _synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Adult);
             _synth.Rate = 1;     
             _synth.Volume = 100;
         }
@@ -110,7 +111,7 @@ namespace MorseCodeConverter
 
         private void ClearButton_Click(object sender, RoutedEventArgs e) => InputArea.Clear();
 
-        private System.Threading.CancellationTokenSource _cts;
+        private CancellationTokenSource _cts;
         private void TTSButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -125,25 +126,26 @@ namespace MorseCodeConverter
                 else
                 {
                     _cts?.Cancel();
-                    _cts = new System.Threading.CancellationTokenSource();
+                    _cts = new CancellationTokenSource();
                     var token = _cts.Token;
                     try
                     {
                         _ = PlayMorseAsync(text, token);
                     }
-                    catch (System.OperationCanceledException)
+                    catch (OperationCanceledException)
                     {
                        
                     }
                 }
             }
         }
-        private async Task PlayMorseAsync(string morse, System.Threading.CancellationToken token)
+        private async Task PlayMorseAsync(string morse, CancellationToken token)
         {
+
             token.ThrowIfCancellationRequested();
             int beepTime = 100;
 
-            foreach (char c in morse)
+            var tasks = morse.Select(async c =>
             {
                 switch (c)
                 {
@@ -158,7 +160,10 @@ namespace MorseCodeConverter
                         break;
                 }
                 await Task.Delay(beepTime / 2, token);
-            }
+            });
+
+            foreach (var t in tasks)
+                await t;
         }
 
 
@@ -210,14 +215,14 @@ namespace MorseCodeConverter
         private string MorseToText(string input)
         {
             StringBuilder output = new StringBuilder();
-            string[] words = input.Split(new string[] { " / " }, System.StringSplitOptions.None);
+            string[] words = input.Split(new string[] { " / " }, StringSplitOptions.None);
 
             foreach (string word in words)
             {
                 string[] letters = word.Split(' ');
                 foreach (string letter in letters)
                 {
-                    int index = System.Array.IndexOf(morseCodeTransferTable, letter);
+                    int index = Array.IndexOf(morseCodeTransferTable, letter);
                     if (index != -1)
                     {
                         if (index < 26)
@@ -238,5 +243,14 @@ namespace MorseCodeConverter
         private string ReadInput(TextBox textBox) => textBox.Text;
 
         private void WriteOutput(string output) => OutputArea.Text = output;
+
+        // Přidejte tuto metodu, pokud není generována automaticky:
+        private void InitializeComponent()
+        {
+            // Tato metoda je obvykle generována automaticky při kompilaci XAML.
+            // Pokud není, můžete ji vygenerovat ručně nebo zkontrolovat, zda je soubor View.xaml správně propojen.
+            Uri resourceLocater = new Uri("/WpfApp2;component/View.xaml", UriKind.Relative);
+            Application.LoadComponent(this, resourceLocater);
+        }
     }
 }

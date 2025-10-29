@@ -49,7 +49,7 @@
             Zadej text do pole níže:
         </TextBlock>
 
-        <TextBox x:Name="InputArea" Grid.Row="1" Grid.RowSpan="4" Grid.Column="3" FontSize="16" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" Background="#33000000" BorderBrush="#00ABADB3" Foreground="White"/>
+        <TextBox x:Name="InputArea" Grid.Row="1" Grid.RowSpan="3" Grid.Column="3" FontSize="16" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" Background="#33000000" BorderBrush="#00ABADB3" Foreground="White"/>
 
         <TextBlock Grid.Row="4" Grid.Column="3" FontSize="20" FontWeight="Bold" TextAlignment="Left" VerticalAlignment="Bottom" Foreground="White">
             Zde se zobrazí převedený text:
